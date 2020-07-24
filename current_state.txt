@@ -1,0 +1,49 @@
+MuAlCalIsolatedMu:
+HLT_L1MuOpen HLT_L1Mu HLT_L2Mu9 HLT_Mu3 HLT_Mu5 HLT_Mu9 HLT_Mu11 HLT_DoubleMu3
+ALCARECOMuAlCalIsolatedMu muonCSCDigis muonDTDigis muonRPCDigis dt1DRecHits dt2DSegments dt4DSegments csc2DRecHits cscSegments rpcRecHits
+pT > 10 GeV
+all types of muons (global, standAlone, tracker-only...)
+step 2
+
+MuAlGlobalCosmics:
+HLT_L1MuOpen HLT_L1Mu HLT_L2Mu9 HLT_Mu3 HLT_Mu5 HLT_Mu9 HLT_Mu11 HLT_DoubleMu3
+ALCARECOMuAlGlobalCosmics cosmicMuons cosmictrackfinderP5 Si*Cluster muonCSCDigis muonDTDigis muonRPCDigis dt1DRecHits dt2DSegments dt4DSegments csc2DRecHits cscSegments rpcRecHits
+pT > 0 GeV
+must be globalMuon
+not step 2, so DIGIs don't exist
+
+MuAlStandAloneCosmics:
+HLT_L1MuOpen HLT_L1Mu HLT_L2Mu9 HLT_Mu3 HLT_Mu5 HLT_Mu9 HLT_Mu11 HLT_DoubleMu3
+ALCARECOMuAlStandAloneCosmics cosmicMuons cosmictrackfinderP5 Si*Cluster muonCSCDigis muonDTDigis muonRPCDigis dt1DRecHits dt2DSegments dt4DSegments csc2DRecHits cscSegments rpcRecHits
+pT > 0 GeV
+|eta| < 100
+selects reco::Tracks, not reco::Muons
+not step 2, so DIGIs don't exist
+
+MuAlOverlaps:
+HLT_L1MuOpen HLT_L1Mu HLT_L2Mu9 HLT_Mu3 HLT_Mu5 HLT_Mu9 HLT_Mu11 HLT_DoubleMu3
+ALCARECOMuAlOverlaps
+pT > 3 GeV
+
+MuAlBeamHalo:
+HLT_CSCBeamHalo HLT_CSCBeamHaloRing2or3
+ALCARECOMuAlBeamHalo muonCSCDigis csc2DRecHits cscSegments
+numberOfStations >= 0
+
+MuAlBeamHaloOverlaps:
+HLT_CSCBeamHaloOverlapRing1 HLT_CSCBeamHaloOverlapRing2
+ALCARECOMuAlBeamHaloOverlaps muonCSCDigis csc2DRecHits cscSegments
+numberOfStations >= 0
+numHitsPerCSC >= 4
+
+MuAlZMuMu:
+HLT_DoubleIsoMu3 HLT_DoubleMu3 HLT_DoubleMu7_Z
+ALCARECOMuAlZMuMu muonCSCDigis muonDTDigis muonRPCDigis dt1DRecHits dt2DSegments dt4DSegments csc2DRecHits cscSegments rpcRecHits
+Does not select Z -> mu mu!  (but it could)
+
+MuCaliMinBias:
+HLTMuon
+muonCSCDigis muonDTDigis muonRPCDigis
+pT > 1.5 GeV
+must be standAloneMuon
+selects reco::Muons, not reco::Tracks
